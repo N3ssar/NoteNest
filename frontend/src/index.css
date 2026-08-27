@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+    themes: forest;
+}
+
+:root {
+    --notenest-ink: #10231e;
+    --notenest-mist: rgba(242, 247, 235, 0.72);
+    --notenest-line: rgba(76, 111, 91, 0.13);
+}
+
+.home-wallpaper {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background-color: var(--notenest-ink);
+    background-image:
+        linear-gradient(var(--notenest-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--notenest-line) 1px, transparent 1px),
+        radial-gradient(circle at 12% 8%, rgba(184, 214, 153, 0.3), transparent 29rem),
+        radial-gradient(circle at 91% 76%, rgba(92, 143, 113, 0.24), transparent 34rem),
+        linear-gradient(135deg, #10231e 0%, #18382d 50%, #0d1d1a 100%);
+    background-size: 44px 44px, 44px 44px, auto, auto, auto;
+    color: var(--notenest-mist);
+}
+
+.home-wallpaper::after {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(10, 25, 21, 0.08), rgba(10, 25, 21, 0.42));
+    content: "";
+    pointer-events: none;
+}
+
+.home-wallpaper>header {
+    background-color: rgba(10, 25, 21, 0.72);
+    border-color: rgba(210, 233, 190, 0.14);
+    backdrop-filter: blur(16px);
+}
+
+.home-wallpaper .bg-base-200 {
+    background-color: rgba(17, 39, 32, 0.94);
+    border-color: rgba(210, 233, 190, 0.16);
+    box-shadow: 0 18px 45px rgba(5, 18, 14, 0.28);
+    color: #eff7e9;
+}
+
+.home-wallpaper .bg-base-200 .text-base-content {
+    color: #eff7e9;
+}
+
+.home-wallpaper .bg-base-200 .text-base-content\/70 {
+    color: rgba(232, 243, 224, 0.72);
+}
+
+.home-wallpaper .bg-base-200 .text-base-content\/50 {
+    color: rgba(215, 232, 204, 0.58);
+}
+
+.home-wallpaper .bg-base-200 .border-base-content\/10 {
+    border-color: rgba(210, 233, 190, 0.14);
+}
+
+.premium-page {
+    background-color: var(--notenest-ink);
+    background-image:
+        linear-gradient(var(--notenest-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--notenest-line) 1px, transparent 1px),
+        linear-gradient(135deg, #10231e 0%, #18382d 50%, #0d1d1a 100%);
+    background-size: 44px 44px, 44px 44px, auto;
+    color: #eff7e9;
+}
+
+.premium-surface {
+    background-color: rgba(17, 39, 32, 0.97) !important;
+    border-color: rgba(210, 233, 190, 0.16);
+    color: #eff7e9;
+}
+
+.premium-surface .text-base-content,
+.premium-surface .label-text {
+    color: #eff7e9;
+}
+
+.premium-surface .text-base-content\/65 {
+    color: rgba(232, 243, 224, 0.68);
+}
+
+.premium-surface .bg-base-100 {
+    background-color: rgba(7, 24, 19, 0.68);
+    border-color: rgba(210, 233, 190, 0.2);
+    color: #eff7e9;
+}
+
+.premium-surface .bg-base-100::placeholder {
+    color: rgba(215, 232, 204, 0.45);
+}
+
+.modal-backdrop {
+    background-color: rgba(3, 12, 10, 0.72);
+    backdrop-filter: blur(9px) saturate(0.82);
+}
+
+.modal-backdrop button {
+    color: transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .home-wallpaper::before {
+        position: absolute;
+        inset: -20%;
+        z-index: -1;
+        background: radial-gradient(ellipse at center, transparent 34%, rgba(5, 18, 14, 0.3) 100%);
+        content: "";
+        pointer-events: none;
+    }
+}
