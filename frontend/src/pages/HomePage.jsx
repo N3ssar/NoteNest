@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import RateLimitedUi from "../components/RateLimitedUi";
 import api from "../lib/axios";
 import toast from "react-hot-toast";
-import Skeleton from "../components/skeleton";
+import Skeleton from "../components/Skeleton";
 import Note from "../components/Note";
 import CreateNoteDialog from "../components/CreateNoteDialog";
 import DeleteNoteDialog from "../components/DeleteNoteDialog";
