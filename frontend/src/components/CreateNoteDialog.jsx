@@ -1,5 +1,5 @@
 import { LoaderCircle, Plus, X } from "lucide-react";
-import axios from "axios";
+import api from "../lib/axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -17,7 +17,7 @@ const CreateNoteDialog = ({ open, onClose, onCreated }) => {
 
     try {
       setSaving(true);
-      const response = await axios.post("http://localhost:5001/notes", {
+      const response = await api.post("/", {
         title: form.title.trim(),
         content: form.content.trim()
       });

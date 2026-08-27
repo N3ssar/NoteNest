@@ -1,0 +1,27 @@
+{
+  "name": "notenest",
+  "version": "1.0.0",
+  "description": "A modern, responsive, and robust full-stack note-taking application. NoteNest allows users to seamlessly create, read, update, and delete notes with a clean UI and secure backend API.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix frontend && npm install --prefix backend && npm run build --prefix frontend",
+    "start": "concurrently \"npm run start --prefix backend\" \"npm run dev --prefix frontend\"",
+    "start:prod": "cross-env NODE_ENV=production npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N3ssar/NoteNest.git"
+  },
+  "keywords": [],
+  "author": "Muhammad Nassar",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/N3ssar/NoteNest/issues"
+  },
+  "homepage": "https://github.com/N3ssar/NoteNest#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.5",
+    "cross-env": "^10.1.0"
+  }
+}

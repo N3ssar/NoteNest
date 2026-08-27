@@ -6,13 +6,11 @@ import {
   Save,
   Trash2
 } from "lucide-react";
-import axios from "axios";
+import api from "../lib/axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate, useParams } from "react-router";
 import DeleteNoteDialog from "../components/DeleteNoteDialog";
-
-const API_URL = "http://localhost:5001/notes";
 
 const EditNoteSkeleton = () => (
   <div className="premium-page min-h-screen px-4 py-8 text-base-content">
@@ -41,7 +39,7 @@ const EditNotePage = () => {
   useEffect(() => {
     const fetchNote = async () => {
       try {
-        const response = await axios.get(`${API_URL}/${id}`);
+        const response = await api.get(`/${id}`);
         setNote(response.data);
         setForm({ title: response.data.title, content: response.data.content });
       } catch (error) {
@@ -75,7 +73,7 @@ const EditNotePage = () => {
         title: form.title.trim(),
         content: form.content.trim()
       };
-      await axios.put(`${API_URL}/${id}`, updatedForm);
+      await api.put(`/${id}`, updatedForm);
       setNote((current) => ({ ...current, ...updatedForm }));
       toast.success("Note updated successfully.");
       navigate("/");

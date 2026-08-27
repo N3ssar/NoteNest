@@ -1,5 +1,5 @@
 import { AlertTriangle, LoaderCircle, Trash2, X } from "lucide-react";
-import axios from "axios";
+import api from "../lib/axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -9,7 +9,7 @@ const DeleteNoteDialog = ({ note, open, onClose, onDeleted }) => {
   const handleDelete = async () => {
     try {
       setDeleting(true);
-      await axios.delete(`http://localhost:5001/notes/${note._id}`);
+      await api.delete(`/${note._id}`);
       toast.success("Note deleted.");
       onDeleted(note._id);
       onClose();
