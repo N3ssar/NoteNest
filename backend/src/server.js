@@ -12,12 +12,14 @@ const app = express();
 const __dirname = path.resolve();
 
 // Middlewares
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://note-nest-alpha.vercel.app"],
-    credentials: true
-  })
-);
+if (process.env.NODE_ENV !== "production") {
+  app.use(
+    cors({
+      origin: "http://localhost:5173"
+    })
+  );
+}
+
 app.use(rateLimiter);
 app.use(express.json());
 
@@ -33,8 +35,5 @@ if (process.env.NODE_ENV === "production") {
 
 const PORT = process.env.PORT || 5001;
 
-connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server is running on port: ${PORT}`);
-  });
-});
+connectDB();
+export default app;
