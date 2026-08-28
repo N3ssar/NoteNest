@@ -12,14 +12,12 @@ const app = express();
 const __dirname = path.resolve();
 
 // Middlewares
-if (process.env.NODE_ENV !== "production") {
-  app.use(
-    cors({
-      origin: "http://localhost:5173"
-    })
-  );
-}
-
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://note-nest-alpha.vercel.app"],
+    credentials: true
+  })
+);
 app.use(rateLimiter);
 app.use(express.json());
 
