@@ -1,7 +1,8 @@
 import rateLimit from "../config/upstash.js";
 const rateLimiter = async (req, res, next) => {
   try {
-    const { success } = await rateLimit.limit("my-ip");
+    const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress || "127.0.0.1";
+    const { success } = await rateLimit.limit(ip);
     if (!success) {
       return res
         .status(429)
